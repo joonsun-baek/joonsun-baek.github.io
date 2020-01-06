@@ -1,21 +1,23 @@
 title:              Leet Joon
 email:              junsun2005@naver.com
 description:        A Blog Theme by Start Bootstrap
-author:             Leet Joon
-baseurl:            "/"
+author:             leetjoon. 
+baseurl:            ""
 url:                "https://joonsun-baek.github.io"
 
 # Social Profiles
 twitter_username:   
 github_username:    joonsun-baek
-facebook_username:  joonsun-baek
+facebook_username:  
 linkedin_username:  joonsun-baek
 
 # Add your google-analytics ID here to activate google analytics
 google_analytics:   UA-XXXXXXXXX-X # out your google-analytics code
 
+
 # Build settings
 markdown:           kramdown
+highlighter:        rouge
 paginate:           5
 paginate_path:      "/posts/page:num/"
 plugins:
