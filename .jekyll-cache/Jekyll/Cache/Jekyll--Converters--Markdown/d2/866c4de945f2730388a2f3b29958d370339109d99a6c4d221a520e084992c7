@@ -1,0 +1,51 @@
+I"�<h2 id="1-leet-code">1. Leet Code</h2>
+
+<h3 id="11-problem">1.1. Problem</h3>
+
+<blockquote>
+  <p>Given an array of integers, return indices of the two numbers such that they add up to a. specific target.
+You may assume that each input would have exactly one solution, and you may not use the. same. element twice.</p>
+</blockquote>
+
+<p>주어진 Integer 배열로부터, 아래의 요구사항에 부합하는 두개의 index를 반환하는 문제.
+각각의 input은 하나의 해결책만 존재한다고 가정하며, Array의 동일한 원소값을 두번이상 쓰지 않아야 한다.</p>
+
+<blockquote>
+  <ul>
+    <li><a href="https://leetcode.com/problems/two-sum/">출처: https://leetcode.com/problems/two-sum</a></li>
+  </ul>
+</blockquote>
+
+<h3 id="12-example">1.2. Example</h3>
+<p>문제의 주어진 예시는 아래와 같음</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given nums = [2, 7, 11, 15], target = 9,
+
+Because nums[0] + nums[1] = 2 + 7 = 9,
+return [0, 1].
+</code></pre></div></div>
+
+<h2 id="2-solution">2. Solution</h2>
+
+<h3 id="21-bruteforcely">2.1. BruteForcely,</h3>
+<p>해당 문제를 BruteForce하게 풀어보면, 그냥 2중 loop로 풀어볼 수 있다
+2중 loop를 순회하며, Array의 2개의 원소값을 더하고, 더한값을 target과 비교하여 동일하다면 코드를 종료시키는 방식</p>
+<ul>
+  <li>Time Complexity : <code class="highlighter-rouge">O(N^2)</code></li>
+  <li>Space Complexity : <code class="highlighter-rouge">O(N)</code></li>
+</ul>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nc">HashMap</span><span class="o">&lt;</span><span class="nc">Integer</span><span class="o">,</span> <span class="nc">Integer</span><span class="o">&gt;</span> <span class="n">numMap</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">HashMap</span><span class="o">();</span>
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+	<span class="n">numMap</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">],</span> <span class="n">i</span><span class="o">);</span>
+<span class="o">}</span>
+
+<span class="k">for</span> <span class="o">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="o">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">nums</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++)</span> <span class="o">{</span>
+	<span class="kt">int</span> <span class="n">calc</span> <span class="o">=</span> <span class="n">target</span> <span class="o">-</span> <span class="n">nums</span><span class="o">[</span><span class="n">i</span><span class="o">];</span>
+	<span class="k">if</span> <span class="o">(</span><span class="n">numMap</span><span class="o">.</span><span class="na">containsKey</span><span class="o">(</span><span class="n">calc</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="n">numMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">calc</span><span class="o">)</span> <span class="o">!=</span> <span class="n">i</span><span class="o">)</span> <span class="o">{</span>
+		<span class="k">return</span> <span class="k">new</span> <span class="kt">int</span><span class="o">[]</span> <span class="o">{</span><span class="n">i</span><span class="o">,</span> <span class="n">numMap</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">calc</span><span class="o">)};</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+<span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+</code></pre></div></div>
+
+:ET
